@@ -1,0 +1,20 @@
+.weather-short {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-short_location {
+  margin-bottom: 105px;
+}
+.weather-short_location h2 {
+  font-size: 2rem;
+  color: var(--card-light-text-color);
+  font-weight: 600;
+}
+
+.weather-short_img > img {
+  width: 150px;
+  height: 174px;
+}

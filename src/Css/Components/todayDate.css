@@ -1,0 +1,12 @@
+.weather-short_date {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 48px;
+  margin-bottom: 33px;
+  font-size: 1.8rem;
+  color: var(--card-light-text-color);
+}
+
+.weather_date-marker {
+  margin: 0 16px;
+}

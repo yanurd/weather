@@ -1,3 +1,5 @@
+import '../../Css/Containers/header.css'
+import gps from '../../img/gps.svg'
 const Header = () => {
   return (
     <>
@@ -8,7 +10,7 @@ const Header = () => {
         <section className="header-location">
           <img
             className="header-location_search"
-            src="./gps.svg"
+            src={gps}
             alt="Geolocation weather"
           />
         </section>

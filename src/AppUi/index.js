@@ -1,12 +1,11 @@
-
-import "./App.css";
-
-function AppUi() {
+import { WeatherProvider } from "../Provider";
+import { AppUi } from "./AppUi";
+const App = () => {
   return (
-    <>
-
-    </>
+    <WeatherProvider>
+      <AppUi></AppUi>
+    </WeatherProvider>
   );
-}
+};
 
-export { AppUi };
+export default App;

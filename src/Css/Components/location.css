@@ -1,0 +1,8 @@
+.weather-short_location {
+  margin-bottom: 105px;
+}
+.weather-short_location h2 {
+  font-size: 2rem;
+  color: var(--card-light-text-color);
+  font-weight: 600;
+}

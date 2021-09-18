@@ -1,0 +1,18 @@
+.weather-short_info {
+  text-align: center;
+}
+.weather-short_info h1 {
+  font-size: 14.4rem;
+  font-weight: 500;
+  color: var(--card-text-color);
+  margin-bottom: 23px;
+}
+.weather-short_temp {
+  font-size: 4.2rem;
+  font-weight: 100;
+}
+.weather-short_info h2 {
+  font-size: 3.6rem;
+  font-weight: 400;
+  color: var(--card-text-color);
+}

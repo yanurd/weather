@@ -1,27 +1,30 @@
+import { useContext } from "react";
+import { WeatherContext } from "../../Provider";
+
+import { Location } from "../../Components/location";
+import { TodayDate } from "../../Components/todayDate";
+import { TodayImage } from "../../Components/todayImage";
+import { TodayInfo } from "../../Components/todayInfo";
+
+import "../../Css/Containers/main.css";
 const Weather = () => {
+  const { weekForecast } = useContext(WeatherContext);
+  const { consolidated_weather } = weekForecast;
   return (
     <>
       <section className="weather-short">
         <div className="weather-short_img">
-          <img src="./Shower.png" alt="heavy cloud weather" />
+          <TodayImage
+            status="c"
+            abbreviation="c"
+          />
         </div>
-        <div className="weather-short_info">
-          <h1>
-            15<span className="weather-short_temp">°c</span>
-          </h1>
-          <h2>Shower</h2>
-        </div>
-        <div className="weather-short_date">
-          <span className="weather_date-today"> Today </span>
-          <span className="weather_date-marker">•</span>
-          <span className="weather_date-date">Fri, 5 Jun</span>
-        </div>
-        <div className="weather-short_location">
-          <h2>Helsinki</h2>
-        </div>
+        <TodayInfo />
+        <TodayDate />
+        <Location />
       </section>
     </>
   );
 };
 
-export {Weather}
+export { Weather };

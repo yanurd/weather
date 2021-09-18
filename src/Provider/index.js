@@ -1,23 +1,40 @@
 import { createContext, useEffect, useState } from "react";
 
 const WeatherContext = createContext();
-const WEATHER_API = "https://www.metaweather.com/api/location/44418/";
+
 const WeatherProvider = (props) => {
+  /* London search by default */
+  const [search, setSearch] = useState(44418);
   const [weekForecast, setWeekForecast] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  /* woeid stands for Where on Earth Id */
+  function WEATHER_API(woeid) {
+    return `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`;
+  }
+
   useEffect(() => {
     setTimeout(() => {
-      fetch(WEATHER_API)
-        .then((response) => response.json())
-        .then((data) => setWeekForecast(data))
-        .catch(error=> setError(true))
-    }, 1000);
-  }, [weekForecast]);
+      try {
+        setLoading(true);
+        fetch(WEATHER_API(search))
+          .then((res) => res.json())
+          .then((data) => {
+            setWeekForecast(data);
+          });
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+        setLoading(false);
+      }
+    }, 2000);
+  }, [search]);
   return (
     <WeatherContext.Provider
       value={{
+        search,
+        setSearch,
         weekForecast,
         setWeekForecast,
         loading,
@@ -31,4 +48,4 @@ const WeatherProvider = (props) => {
   );
 };
 
-export { WeatherProvider };
+export { WeatherProvider, WeatherContext };

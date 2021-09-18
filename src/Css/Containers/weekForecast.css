@@ -1,0 +1,6 @@
+.weather-full_week {
+  display: grid;
+  grid-template: repeat(1, minmax(70px, 1fr)) / repeat(2, minmax(90px, 1fr));
+  padding: 5.2rem;
+  gap: 32px;
+}
