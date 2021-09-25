@@ -1,6 +1,6 @@
 import "../Css/Components/todayDate.css";
-import { useContext } from "react";
-import { WeatherContext } from "../Provider";
+// import { useContext } from "react";
+// import { WeatherContext } from "../Provider";
 
 const TodayDate = () => {
   // const { today } = useContext(WeatherContext);
