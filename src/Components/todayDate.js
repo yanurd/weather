@@ -3,8 +3,7 @@ import { useContext } from "react";
 import { WeatherContext } from "../Provider";
 
 const TodayDate = () => {
-  const { weekForecast } = useContext(WeatherContext);
-  const time  = weekForecast?.time;
+  // const { today } = useContext(WeatherContext);
   return (
     <div className="weather-short_date">
       <span className="weather_date-today"> Today </span>
