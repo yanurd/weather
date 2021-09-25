@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { WeatherContext } from "../Provider";
 
 const TodayAirPressureStatus = () => {
-  const { weekForecast } = useContext(WeatherContext);
-  const airPressure = weekForecast.consolidated_weather[0]?.air_pressure 
+  const { today } = useContext(WeatherContext);
+
   return (
     <div className="weather-card_item">
       <span>Air Pressure</span>
       <h2>
-        {airPressure }
+        {today.air_pressure}
         <span className="weather-item_subtitle">mb</span>
       </h2>
     </div>

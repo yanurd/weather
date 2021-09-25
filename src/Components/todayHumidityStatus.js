@@ -2,16 +2,16 @@ import { useContext } from "react";
 import { WeatherContext } from "../Provider";
 
 const TodayHumidityStatus = () => {
-  const { weekForecast } = useContext(WeatherContext);
-  const humidity = weekForecast.consolidated_weather[0]?.humidity || 0;
+  const { today } = useContext(WeatherContext);
+
   return (
     <div className="weather-card_item">
       <span>Humidity</span>
       <h2>
-        {humidity}
+        {today.humidity}
         <span className="weather-item_subtitle">%</span>
       </h2>
-      <input type="range" value={humidity} disabled={true} />
+      <input type="range" value={today.humidity} disabled={true} />
     </div>
   );
 };

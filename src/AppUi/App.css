@@ -20,10 +20,10 @@ body {
   background-color: var(--card-bg);
 }
 .weather-full {
-  display: grid;
+  /* display: grid; */
   background: var(--dark-bg);
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr;
   justify-content: center;
-  justify-items: stretch;
+  justify-items: stretch; */
   color: var(--card-text-color);
 }

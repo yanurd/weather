@@ -17,7 +17,7 @@ const AppUi = () => {
           <Weather />
           <section className="weather-full">
             <WeekForecast />
-            {/* <TodayDetails /> */}
+            <TodayDetails />
           </section>
         </>
       )}
