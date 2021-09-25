@@ -6,6 +6,8 @@ const WeatherProvider = (props) => {
   /* London search by default */
   const [search, setSearch] = useState(44418);
   const [weekForecast, setWeekForecast] = useState({});
+  const [today, setToday] = useState({});
+  const [week, setWeek] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -15,18 +17,19 @@ const WeatherProvider = (props) => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async () => {
       try {
         setLoading(true);
-        fetch(WEATHER_API(search))
-          .then((res) => res.json())
-          .then((data) => {
-            setWeekForecast(data);
-          });
+        const res = await fetch(WEATHER_API(search));
+        const data = await res.json();
+        setToday(data.consolidated_weather[0]);
+        data.consolidated_weather.shift();
+        setWeekForecast(data);
+        setWeek(data.consolidated_weather)
         setLoading(false);
       } catch (error) {
-        setError(true);
         setLoading(false);
+        setError(true);
       }
     }, 2000);
   }, [search]);
@@ -37,6 +40,10 @@ const WeatherProvider = (props) => {
         setSearch,
         weekForecast,
         setWeekForecast,
+        today,
+        setToday,
+        week,
+        setWeek,
         loading,
         setLoading,
         error,

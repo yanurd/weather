@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useContext } from "react";
 
 import { WeekCard } from "../../Components/weekCard";
-import '../../Css/Containers/weekForecast.css'
+import "../../Css/Containers/weekForecast.css";
+import { WeatherContext } from "../../Provider";
 const WeekForecast = () => {
-  /* State used to pop 1st element from weekForecast */
-  const [week, setWeek] = useState([]);
+  const { week } = useContext(WeatherContext);
   return (
-    
     <div className="weather-full_week">
-      <WeekCard />
+      {week.map((day) => (
+        <WeekCard
+          key={day.id}
+          abbreviation={day.weather_state_abbr}
+          status={day.weather_state_name}
+          minTemp={day.min_temp}
+          maxTemp={day.max_temp}
+        />
+      ))}
     </div>
   );
 };

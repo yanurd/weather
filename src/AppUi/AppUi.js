@@ -11,13 +11,13 @@ const AppUi = () => {
   const { loading, error } = useContext(WeatherContext);
   return (
     <>
-      {loading === false && error === false && (
+      {loading === false && error === false &&(
         <>
           <Header />
           <Weather />
           <section className="weather-full">
             <WeekForecast />
-            <TodayDetails />
+            {/* <TodayDetails /> */}
           </section>
         </>
       )}

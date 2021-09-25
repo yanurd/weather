@@ -8,20 +8,22 @@ import { TodayInfo } from "../../Components/todayInfo";
 
 import "../../Css/Containers/main.css";
 const Weather = () => {
-  const { weekForecast } = useContext(WeatherContext);
-  const { consolidated_weather } = weekForecast;
+  const { weekForecast, today } = useContext(WeatherContext);
   return (
     <>
       <section className="weather-short">
         <div className="weather-short_img">
           <TodayImage
-            status="c"
-            abbreviation="c"
+            status={today.weather_state_name}
+            abbreviation={today.weather_state_abbr}
           />
         </div>
-        <TodayInfo />
+        <TodayInfo
+          weatherStatus={today.weather_state_name}
+          temp={today.the_temp}
+        />
         <TodayDate />
-        <Location />
+        <Location title={weekForecast.title} />
       </section>
     </>
   );
